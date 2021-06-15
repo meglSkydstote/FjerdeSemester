@@ -1,0 +1,356 @@
+Listening for transport dt_socket at address: 10099
+maj 25, 2021 8:24:41 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+maj 25, 2021 8:24:41 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+maj 25, 2021 8:24:42 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+maj 25, 2021 8:24:42 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:24:42 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:24:43 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+maj 25, 2021 8:24:43 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+maj 25, 2021 8:24:43 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+maj 25, 2021 8:24:43 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+maj 25, 2021 8:24:44 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container feca88b6-10dd-493b-899e-552ce471572b shut down
+Exception in thread "main" org.jboss.weld.exceptions.UnsatisfiedResolutionException: WELD-001334: Unsatisfied dependencies for type PersistenceUnitInfo with qualifiers @Any 
+	at org.jboss.weld.bean.builtin.InstanceImpl.checkBeanResolved(InstanceImpl.java:241)
+	at org.jboss.weld.bean.builtin.InstanceImpl.get(InstanceImpl.java:113)
+	at org.jboss.weld.util.ForwardingWeldInstance.get(ForwardingWeldInstance.java:44)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.getPersistenceUnitInfo(EntityManagerFactories.java:281)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:153)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.Jonathan.repository.entityManager.JpaStarter.onInitialized(JpaStarter.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:118)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.Jonathan.Main.main(Main.java:15)
+Listening for transport dt_socket at address: 10099
+maj 25, 2021 8:24:59 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+maj 25, 2021 8:24:59 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+maj 25, 2021 8:25:00 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+maj 25, 2021 8:25:00 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:25:00 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:25:01 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+maj 25, 2021 8:25:01 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+maj 25, 2021 8:25:01 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+maj 25, 2021 8:25:01 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+maj 25, 2021 8:25:01 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container e9255116-1e93-415b-923a-cbfca3905d1e shut down
+Exception in thread "main" org.jboss.weld.exceptions.UnsatisfiedResolutionException: WELD-001334: Unsatisfied dependencies for type PersistenceUnitInfo with qualifiers @Any 
+	at org.jboss.weld.bean.builtin.InstanceImpl.checkBeanResolved(InstanceImpl.java:241)
+	at org.jboss.weld.bean.builtin.InstanceImpl.get(InstanceImpl.java:113)
+	at org.jboss.weld.util.ForwardingWeldInstance.get(ForwardingWeldInstance.java:44)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.getPersistenceUnitInfo(EntityManagerFactories.java:281)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:153)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.Jonathan.repository.entityManager.JpaStarter.onInitialized(JpaStarter.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:118)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.Jonathan.Main.main(Main.java:15)
+Listening for transport dt_socket at address: 10099
+maj 25, 2021 8:27:22 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+maj 25, 2021 8:27:22 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+maj 25, 2021 8:27:23 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+maj 25, 2021 8:27:23 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:27:23 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:27:24 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+maj 25, 2021 8:27:24 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+maj 25, 2021 8:27:24 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+maj 25, 2021 8:27:24 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+maj 25, 2021 8:27:24 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container 428c5915-f5e6-4fb2-a4e7-b45f71809213 shut down
+Exception in thread "main" org.jboss.weld.exceptions.UnsatisfiedResolutionException: WELD-001334: Unsatisfied dependencies for type PersistenceUnitInfo with qualifiers @Any 
+	at org.jboss.weld.bean.builtin.InstanceImpl.checkBeanResolved(InstanceImpl.java:241)
+	at org.jboss.weld.bean.builtin.InstanceImpl.get(InstanceImpl.java:113)
+	at org.jboss.weld.util.ForwardingWeldInstance.get(ForwardingWeldInstance.java:44)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.getPersistenceUnitInfo(EntityManagerFactories.java:281)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:153)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.Jonathan.repository.entityManager.JpaStarter.onInitialized(JpaStarter.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:118)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.Jonathan.Main.main(Main.java:15)
+Listening for transport dt_socket at address: 10099
+maj 25, 2021 8:32:23 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+maj 25, 2021 8:32:23 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+maj 25, 2021 8:32:24 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+maj 25, 2021 8:32:24 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:32:25 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:32:25 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+maj 25, 2021 8:32:25 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+maj 25, 2021 8:32:25 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+maj 25, 2021 8:32:25 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+maj 25, 2021 8:32:26 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container caa391d5-1c6d-4690-8d14-5969657592ca shut down
+Exception in thread "main" org.jboss.weld.exceptions.UnsatisfiedResolutionException: WELD-001334: Unsatisfied dependencies for type PersistenceUnitInfo with qualifiers @Any 
+	at org.jboss.weld.bean.builtin.InstanceImpl.checkBeanResolved(InstanceImpl.java:241)
+	at org.jboss.weld.bean.builtin.InstanceImpl.get(InstanceImpl.java:113)
+	at org.jboss.weld.util.ForwardingWeldInstance.get(ForwardingWeldInstance.java:44)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.getPersistenceUnitInfo(EntityManagerFactories.java:281)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:153)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.Jonathan.repository.entityManager.JpaStarter.onInitialized(JpaStarter.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:118)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.Jonathan.Main.main(Main.java:15)
+Listening for transport dt_socket at address: 10099
+maj 25, 2021 8:34:47 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+maj 25, 2021 8:34:47 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+maj 25, 2021 8:34:48 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+maj 25, 2021 8:34:48 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:34:48 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:34:49 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+maj 25, 2021 8:34:49 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+maj 25, 2021 8:34:49 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+maj 25, 2021 8:34:49 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+maj 25, 2021 8:34:50 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: marketPU]
+maj 25, 2021 8:34:50 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+maj 25, 2021 8:34:50 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container 6c28b89b-bcac-423c-9285-248571633345 shut down
+Exception in thread "main" org.jboss.weld.exceptions.UnsatisfiedResolutionException: WELD-001334: Unsatisfied dependencies for type DataSource with qualifiers @Default @Named WELD-001475: The following beans match by type, but none have matching qualifiers:
+  - Configurator Bean [class com.zaxxer.hikari.HikariDataSource, types: HikariConfig, HikariConfigMXBean, CommonDataSource, HikariDataSource, Closeable, DataSource, Object, Wrapper, AutoCloseable, qualifiers: @Default @Any @Named]
+
+	at org.jboss.weld.bean.builtin.InstanceImpl.checkBeanResolved(InstanceImpl.java:241)
+	at org.jboss.weld.bean.builtin.InstanceImpl.get(InstanceImpl.java:113)
+	at io.helidon.integrations.cdi.jpa.JtaDataSourceProvider.getDataSource(JtaDataSourceProvider.java:223)
+	at io.helidon.integrations.cdi.jpa.JtaDataSourceProvider$Proxy$_$$_WeldClientProxy.getDataSource(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.PersistenceUnitInfoBean.getJtaDataSource(PersistenceUnitInfoBean.java:714)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.bean.proxy.AbstractBeanInstance.invoke(AbstractBeanInstance.java:38)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:106)
+	at org.jboss.weldx.persistence.spi.PersistenceUnitInfo$$Proxy$_$$_WeldClientProxy.getJtaDataSource(Unknown Source)
+	at org.hibernate.jpa.boot.internal.PersistenceUnitInfoDescriptor.getJtaDataSource(PersistenceUnitInfoDescriptor.java:48)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.normalizeDataAccess(EntityManagerFactoryBuilderImpl.java:818)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.normalizeSettings(EntityManagerFactoryBuilderImpl.java:568)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.mergeSettings(EntityManagerFactoryBuilderImpl.java:492)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:217)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.<init>(EntityManagerFactoryBuilderImpl.java:168)
+	at org.hibernate.jpa.boot.spi.Bootstrap.getEntityManagerFactoryBuilder(Bootstrap.java:32)
+	at org.hibernate.jpa.boot.spi.Bootstrap.getEntityManagerFactoryBuilder(Bootstrap.java:89)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilder(HibernatePersistenceProvider.java:166)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.Jonathan.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:17)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:118)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.Jonathan.Main.main(Main.java:15)
+Listening for transport dt_socket at address: 10099
+maj 25, 2021 8:35:24 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+maj 25, 2021 8:35:24 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+maj 25, 2021 8:35:25 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+maj 25, 2021 8:35:25 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:35:25 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+maj 25, 2021 8:35:26 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+maj 25, 2021 8:35:26 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+maj 25, 2021 8:35:26 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+maj 25, 2021 8:35:26 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+maj 25, 2021 8:35:26 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: marketPU]
+maj 25, 2021 8:35:26 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+maj 25, 2021 8:35:27 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+maj 25, 2021 8:35:27 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Starting...
+maj 25, 2021 8:35:27 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Start completed.
+maj 25, 2021 8:35:27 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+maj 25, 2021 8:35:28 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [io.helidon.integrations.cdi.hibernate.CDISEJtaPlatform$Proxy$_$$_WeldClientProxy]
+maj 25, 2021 8:35:28 PM io.helidon.microprofile.server.ServerCdiExtension addApplication
+INFO: Registering JAX-RS Application: AnnonceApplication
+maj 25, 2021 8:35:29 PM io.helidon.webserver.NettyWebServer lambda$start$7
+INFO: Channel '@default' started: [id: 0x07430055, L:/0:0:0:0:0:0:0:0:8099]
+maj 25, 2021 8:35:29 PM io.helidon.microprofile.server.ServerCdiExtension startServer
+INFO: Server started on http://localhost:8099 (and all other host addresses) in 5235 milliseconds (since JVM startup).
+maj 25, 2021 8:35:29 PM io.helidon.common.HelidonFeatures features
+INFO: Helidon MP 2.1.0 features: [CDI, Config, Fault Tolerance, Health, JAX-RS, JPA, JTA, Metrics, Open API, Security, Server, Tracing]

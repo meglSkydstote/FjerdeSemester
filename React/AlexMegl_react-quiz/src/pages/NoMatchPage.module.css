@@ -1,0 +1,25 @@
+.noMatch {
+  margin: 0.4rem auto;
+  background-color: rgb(31, 31, 31);
+  width: 50rem;
+  height: 1fr;
+  max-width: 95%;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+.noMatchDiddle {
+  background-color: #4b4b4b;
+  margin: 0.4rem;
+  border-radius: 12px;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.noMatch-text {
+  font-size: 1rem;
+  flex: 1;
+  margin: 0 1rem;
+  color: rgb(255, 255, 255);
+}

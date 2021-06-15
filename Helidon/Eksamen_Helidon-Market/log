@@ -1,0 +1,1062 @@
+==================================
+-----------------------------------------
+PID 1085
+Listening for transport dt_socket at address: 10095
+May 25, 2021 3:27:18 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+May 25, 2021 3:27:19 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+May 25, 2021 3:27:19 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+May 25, 2021 3:27:20 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 3:27:20 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 3:27:22 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+May 25, 2021 3:27:22 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+May 25, 2021 3:27:22 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+May 25, 2021 3:27:22 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+May 25, 2021 3:27:23 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: mssql]
+May 25, 2021 3:27:23 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+May 25, 2021 3:27:23 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+May 25, 2021 3:27:24 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Starting...
+May 25, 2021 3:27:24 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Start completed.
+May 25, 2021 3:27:24 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+May 25, 2021 3:27:26 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [io.helidon.integrations.cdi.hibernate.CDISEJtaPlatform$Proxy$_$$_WeldClientProxy]
+May 25, 2021 3:27:26 PM io.helidon.microprofile.server.ServerCdiExtension addApplication
+INFO: Registering JAX-RS Application: UsedMarketApplication
+May 25, 2021 3:27:27 PM io.helidon.webserver.NettyWebServer lambda$start$7
+INFO: Channel '@default' started: [id: 0x72520a7b, L:/0:0:0:0:0:0:0:0:8096]
+May 25, 2021 3:27:27 PM io.helidon.microprofile.server.ServerCdiExtension startServer
+INFO: Server started on http://localhost:8096 (and all other host addresses) in 8848 milliseconds (since JVM startup).
+May 25, 2021 3:27:27 PM io.helidon.common.HelidonFeatures features
+INFO: Helidon MP 2.1.0 features: [CDI, Config, Fault Tolerance, Health, JAX-RS, JPA, JTA, Metrics, Open API, Security, Server, Tracing]
+May 25, 2021 3:27:31 PM com.arjuna.ats.arjuna.recovery.TransactionStatusManager start
+INFO: ARJUNA012170: TransactionStatusManager started on port 57743 and host 127.0.0.1 with service com.arjuna.ats.arjuna.recovery.ActionStatusService
+Hibernate: insert into AD_USER (COMPANY_NAME, CREATION_DATE, EMAIL, FIRST_NAME, LAST_NAME, PHONE_CODE, PHONE_NUMBER, TYPE, CITY_FK, ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+May 25, 2021 3:27:32 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: 547, SQLState: 23000
+May 25, 2021 3:27:32 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: The INSERT statement conflicted with the FOREIGN KEY constraint "CITY_FK". The conflict occurred in database "UsedMarket", table "dbo.CITY", column 'ZIP_CODE'.
+May 25, 2021 3:27:32 PM com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator beforeCompletion
+WARN: ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffffc0a800b4:e190:60acfb43:5, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@796eeec1 >
+javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1364)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:451)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3210)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2378)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorImpl.beforeCompletion(JtaTransactionCoordinatorImpl.java:355)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.SynchronizationCallbackCoordinatorNonTrackingImpl.beforeCompletion(SynchronizationCallbackCoordinatorNonTrackingImpl.java:47)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization.beforeCompletion(RegisteredSynchronization.java:37)
+	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:76)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:360)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:91)
+	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:162)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1288)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:126)
+	at io.helidon.integrations.jta.cdi.DelegatingTransactionManager.commit(DelegatingTransactionManager.java:106)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager.commit(NarayanaTransactionManager.java:221)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager$Proxy$_$$_WeldClientProxy.commit(Unknown Source)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:232)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:178)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:53)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:88)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.service.UserService$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at dk.usedmarket.resource.UserResource.createUser(UserResource.java:32)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser$$super(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at io.helidon.microprofile.metrics.InterceptorSyntheticSimplyTimed.interceptRestEndpoint(InterceptorSyntheticSimplyTimed.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$VoidOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:159)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at io.helidon.webserver.jersey.JerseySupport$JerseyHandler.lambda$doAccept$3(JerseySupport.java:293)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:117)
+	at io.helidon.common.context.ContextAwareExecutorImpl.lambda$wrap$5(ContextAwareExecutorImpl.java:154)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3254)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3779)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1360)
+	... 79 more
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The INSERT statement conflicted with the FOREIGN KEY constraint "CITY_FK". The conflict occurred in database "UsedMarket", table "dbo.CITY", column 'ZIP_CODE'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1632)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:602)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:524)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3274)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:247)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:222)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate(SQLServerPreparedStatement.java:473)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 90 more
+
+May 25, 2021 3:27:32 PM io.helidon.microprofile.server.JaxRsCdiExtension$2 toResponse
+WARNING: Internal server error
+javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1300)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:126)
+	at io.helidon.integrations.jta.cdi.DelegatingTransactionManager.commit(DelegatingTransactionManager.java:106)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager.commit(NarayanaTransactionManager.java:221)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager$Proxy$_$$_WeldClientProxy.commit(Unknown Source)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:232)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:178)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:53)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:88)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.service.UserService$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at dk.usedmarket.resource.UserResource.createUser(UserResource.java:32)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser$$super(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at io.helidon.microprofile.metrics.InterceptorSyntheticSimplyTimed.interceptRestEndpoint(InterceptorSyntheticSimplyTimed.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$VoidOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:159)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at io.helidon.webserver.jersey.JerseySupport$JerseyHandler.lambda$doAccept$3(JerseySupport.java:293)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:117)
+	at io.helidon.common.context.ContextAwareExecutorImpl.lambda$wrap$5(ContextAwareExecutorImpl.java:154)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1364)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:451)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3210)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2378)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorImpl.beforeCompletion(JtaTransactionCoordinatorImpl.java:355)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.SynchronizationCallbackCoordinatorNonTrackingImpl.beforeCompletion(SynchronizationCallbackCoordinatorNonTrackingImpl.java:47)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization.beforeCompletion(RegisteredSynchronization.java:37)
+	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:76)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:360)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:91)
+	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:162)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1288)
+	... 67 more
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3254)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3779)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1360)
+	... 79 more
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The INSERT statement conflicted with the FOREIGN KEY constraint "CITY_FK". The conflict occurred in database "UsedMarket", table "dbo.CITY", column 'ZIP_CODE'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1632)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:602)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:524)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3274)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:247)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:222)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate(SQLServerPreparedStatement.java:473)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 90 more
+
+===================================
+-----------------------------------------
+Listening for transport dt_socket at address: 10095
+May 25, 2021 3:33:52 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+May 25, 2021 3:33:52 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+May 25, 2021 3:33:53 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+May 25, 2021 3:33:54 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 3:33:54 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 3:33:56 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+May 25, 2021 3:33:56 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+May 25, 2021 3:33:56 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+May 25, 2021 3:33:56 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+May 25, 2021 3:33:57 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: mssql]
+May 25, 2021 3:33:57 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+May 25, 2021 3:33:57 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+May 25, 2021 3:33:58 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Starting...
+May 25, 2021 3:33:58 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Start completed.
+May 25, 2021 3:33:58 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+May 25, 2021 3:34:00 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [io.helidon.integrations.cdi.hibernate.CDISEJtaPlatform$Proxy$_$$_WeldClientProxy]
+May 25, 2021 3:34:00 PM io.helidon.microprofile.server.ServerCdiExtension addApplication
+INFO: Registering JAX-RS Application: UsedMarketApplication
+May 25, 2021 3:34:01 PM io.helidon.webserver.NettyWebServer lambda$start$7
+INFO: Channel '@default' started: [id: 0xc8279a42, L:/0:0:0:0:0:0:0:0:8096]
+May 25, 2021 3:34:01 PM io.helidon.microprofile.server.ServerCdiExtension startServer
+INFO: Server started on http://localhost:8096 (and all other host addresses) in 10122 milliseconds (since JVM startup).
+May 25, 2021 3:34:01 PM io.helidon.common.HelidonFeatures features
+INFO: Helidon MP 2.1.0 features: [CDI, Config, Fault Tolerance, Health, JAX-RS, JPA, JTA, Metrics, Open API, Security, Server, Tracing]
+May 25, 2021 3:34:11 PM com.arjuna.ats.arjuna.recovery.TransactionStatusManager start
+INFO: ARJUNA012170: TransactionStatusManager started on port 57806 and host 127.0.0.1 with service com.arjuna.ats.arjuna.recovery.ActionStatusService
+Hibernate: insert into AD_USER (COMPANY_NAME, CREATION_DATE, EMAIL, FIRST_NAME, LAST_NAME, PHONE_CODE, PHONE_NUMBER, TYPE, CITY_FK, ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+May 25, 2021 3:34:11 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+WARN: SQL Error: 547, SQLState: 23000
+May 25, 2021 3:34:11 PM org.hibernate.engine.jdbc.spi.SqlExceptionHelper logExceptions
+ERROR: The INSERT statement conflicted with the FOREIGN KEY constraint "CITY_FK". The conflict occurred in database "UsedMarket", table "dbo.CITY", column 'ZIP_CODE'.
+May 25, 2021 3:34:11 PM com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator beforeCompletion
+WARN: ARJUNA012125: TwoPhaseCoordinator.beforeCompletion - failed for SynchronizationImple< 0:ffffc0a800b4:e1cf:60acfcd3:5, org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization@3a504b2a >
+javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1364)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:451)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3210)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2378)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorImpl.beforeCompletion(JtaTransactionCoordinatorImpl.java:355)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.SynchronizationCallbackCoordinatorNonTrackingImpl.beforeCompletion(SynchronizationCallbackCoordinatorNonTrackingImpl.java:47)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization.beforeCompletion(RegisteredSynchronization.java:37)
+	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:76)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:360)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:91)
+	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:162)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1288)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:126)
+	at io.helidon.integrations.jta.cdi.DelegatingTransactionManager.commit(DelegatingTransactionManager.java:106)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager.commit(NarayanaTransactionManager.java:221)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager$Proxy$_$$_WeldClientProxy.commit(Unknown Source)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:232)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:178)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:53)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:88)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.service.UserService$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at dk.usedmarket.resource.UserResource.createUser(UserResource.java:32)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser$$super(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at io.helidon.microprofile.metrics.InterceptorSyntheticSimplyTimed.interceptRestEndpoint(InterceptorSyntheticSimplyTimed.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$VoidOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:159)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at io.helidon.webserver.jersey.JerseySupport$JerseyHandler.lambda$doAccept$3(JerseySupport.java:293)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:117)
+	at io.helidon.common.context.ContextAwareExecutorImpl.lambda$wrap$5(ContextAwareExecutorImpl.java:154)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3254)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3779)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1360)
+	... 79 more
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The INSERT statement conflicted with the FOREIGN KEY constraint "CITY_FK". The conflict occurred in database "UsedMarket", table "dbo.CITY", column 'ZIP_CODE'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1632)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:602)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:524)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3274)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:247)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:222)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate(SQLServerPreparedStatement.java:473)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 90 more
+
+May 25, 2021 3:34:11 PM io.helidon.microprofile.server.JaxRsCdiExtension$2 toResponse
+WARNING: Internal server error
+javax.transaction.RollbackException: ARJUNA016053: Could not commit transaction.
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1300)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.BaseTransaction.commit(BaseTransaction.java:126)
+	at io.helidon.integrations.jta.cdi.DelegatingTransactionManager.commit(DelegatingTransactionManager.java:106)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager.commit(NarayanaTransactionManager.java:221)
+	at io.helidon.integrations.jta.cdi.NarayanaTransactionManager$Proxy$_$$_WeldClientProxy.commit(Unknown Source)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.endTransaction(TransactionalInterceptorBase.java:232)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.invokeInOurTx(TransactionalInterceptorBase.java:178)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.doIntercept(TransactionalInterceptorRequired.java:53)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorBase.intercept(TransactionalInterceptorBase.java:88)
+	at com.arjuna.ats.jta.cdi.transactional.TransactionalInterceptorRequired.intercept(TransactionalInterceptorRequired.java:47)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.service.UserService$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at dk.usedmarket.resource.UserResource.createUser(UserResource.java:32)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser$$super(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.proxy.TerminalAroundInvokeInvocationContext.proceedInternal(TerminalAroundInvokeInvocationContext.java:51)
+	at org.jboss.weld.interceptor.proxy.AroundInvokeInvocationContext.proceed(AroundInvokeInvocationContext.java:78)
+	at io.helidon.microprofile.metrics.InterceptorSyntheticSimplyTimed.interceptRestEndpoint(InterceptorSyntheticSimplyTimed.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.interceptor.reader.SimpleInterceptorInvocation$SimpleMethodInvocation.invoke(SimpleInterceptorInvocation.java:73)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeAroundInvoke(InterceptorMethodHandler.java:84)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.executeInterception(InterceptorMethodHandler.java:72)
+	at org.jboss.weld.interceptor.proxy.InterceptorMethodHandler.invoke(InterceptorMethodHandler.java:56)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:79)
+	at org.jboss.weld.bean.proxy.CombinedInterceptorAndDecoratorStackMethodHandler.invoke(CombinedInterceptorAndDecoratorStackMethodHandler.java:68)
+	at dk.usedmarket.resource.UserResource$Proxy$_$$_WeldSubclass.createUser(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$VoidOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:159)
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)
+	at org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:292)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:274)
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:244)
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:680)
+	at io.helidon.webserver.jersey.JerseySupport$JerseyHandler.lambda$doAccept$3(JerseySupport.java:293)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:117)
+	at io.helidon.common.context.ContextAwareExecutorImpl.lambda$wrap$5(ContextAwareExecutorImpl.java:154)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:154)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:181)
+	at org.hibernate.internal.ExceptionConverterImpl.convert(ExceptionConverterImpl.java:188)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1364)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:451)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3210)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2378)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jta.internal.JtaTransactionCoordinatorImpl.beforeCompletion(JtaTransactionCoordinatorImpl.java:355)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.SynchronizationCallbackCoordinatorNonTrackingImpl.beforeCompletion(SynchronizationCallbackCoordinatorNonTrackingImpl.java:47)
+	at org.hibernate.resource.transaction.backend.jta.internal.synchronization.RegisteredSynchronization.beforeCompletion(RegisteredSynchronization.java:37)
+	at com.arjuna.ats.internal.jta.resources.arjunacore.SynchronizationImple.beforeCompletion(SynchronizationImple.java:76)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.beforeCompletion(TwoPhaseCoordinator.java:360)
+	at com.arjuna.ats.arjuna.coordinator.TwoPhaseCoordinator.end(TwoPhaseCoordinator.java:91)
+	at com.arjuna.ats.arjuna.AtomicAction.commit(AtomicAction.java:162)
+	at com.arjuna.ats.internal.jta.transaction.arjunacore.TransactionImple.commitAndDisassociate(TransactionImple.java:1288)
+	... 67 more
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3254)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3779)
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:107)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1360)
+	... 79 more
+Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: The INSERT statement conflicted with the FOREIGN KEY constraint "CITY_FK". The conflict occurred in database "UsedMarket", table "dbo.CITY", column 'ZIP_CODE'.
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.getNextResult(SQLServerStatement.java:1632)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.doExecutePreparedStatement(SQLServerPreparedStatement.java:602)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement$PrepStmtExecCmd.doExecute(SQLServerPreparedStatement.java:524)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3274)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeCommand(SQLServerStatement.java:247)
+	at com.microsoft.sqlserver.jdbc.SQLServerStatement.executeStatement(SQLServerStatement.java:222)
+	at com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement.executeUpdate(SQLServerPreparedStatement.java:473)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+	... 90 more
+
+===================================
+-----------------------------------------
+PID 1147
+-----------------------------------------
+Listening for transport dt_socket at address: 10095
+May 25, 2021 3:35:36 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+May 25, 2021 3:35:36 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+May 25, 2021 3:35:37 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+May 25, 2021 3:35:38 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 3:35:38 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 3:35:40 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+May 25, 2021 3:35:40 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+May 25, 2021 3:35:40 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+May 25, 2021 3:35:40 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+May 25, 2021 3:35:42 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: mssql]
+May 25, 2021 3:35:42 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+May 25, 2021 3:35:42 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+May 25, 2021 3:35:42 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Starting...
+May 25, 2021 3:35:43 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Start completed.
+May 25, 2021 3:35:43 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+May 25, 2021 3:35:44 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [io.helidon.integrations.cdi.hibernate.CDISEJtaPlatform$Proxy$_$$_WeldClientProxy]
+May 25, 2021 3:35:44 PM io.helidon.microprofile.server.ServerCdiExtension addApplication
+INFO: Registering JAX-RS Application: UsedMarketApplication
+May 25, 2021 3:35:45 PM io.helidon.webserver.NettyWebServer lambda$start$7
+INFO: Channel '@default' started: [id: 0x7bfda5e9, L:/0:0:0:0:0:0:0:0:8096]
+May 25, 2021 3:35:45 PM io.helidon.microprofile.server.ServerCdiExtension startServer
+INFO: Server started on http://localhost:8096 (and all other host addresses) in 10520 milliseconds (since JVM startup).
+May 25, 2021 3:35:45 PM io.helidon.common.HelidonFeatures features
+INFO: Helidon MP 2.1.0 features: [CDI, Config, Fault Tolerance, Health, JAX-RS, JPA, JTA, Metrics, Open API, Security, Server, Tracing]
+May 25, 2021 3:35:49 PM com.arjuna.ats.arjuna.recovery.TransactionStatusManager start
+INFO: ARJUNA012170: TransactionStatusManager started on port 57842 and host 127.0.0.1 with service com.arjuna.ats.arjuna.recovery.ActionStatusService
+Hibernate: insert into AD_USER (COMPANY_NAME, CREATION_DATE, EMAIL, FIRST_NAME, LAST_NAME, PHONE_CODE, PHONE_NUMBER, TYPE, CITY_FK, ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+===================================
+-----------------------------------------
+PID 1178
+Listening for transport dt_socket at address: 10095
+May 25, 2021 10:54:54 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+May 25, 2021 10:54:54 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+May 25, 2021 10:54:55 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+May 25, 2021 10:54:55 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 10:54:55 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 10:54:57 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+May 25, 2021 10:54:57 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+May 25, 2021 10:54:57 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+May 25, 2021 10:54:57 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+May 25, 2021 10:54:58 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: mssql]
+May 25, 2021 10:54:58 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+May 25, 2021 10:54:58 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+May 25, 2021 10:54:58 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Starting...
+May 25, 2021 10:54:59 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Start completed.
+May 25, 2021 10:54:59 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+May 25, 2021 10:55:01 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [io.helidon.integrations.cdi.hibernate.CDISEJtaPlatform$Proxy$_$$_WeldClientProxy]
+May 25, 2021 10:55:01 PM org.hibernate.internal.SessionFactoryImpl <init>
+ERROR: HHH000177: Error in named query: CategoryPO.findAll
+org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u.ID, u.DESCRIPTION FROM CATEGORY u]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79)
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:220)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.query.spi.NamedQueryRepository.checkNamedQueries(NamedQueryRepository.java:157)
+	at org.hibernate.internal.SessionFactoryImpl.checkNamedQueries(SessionFactoryImpl.java:549)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.usedmarket.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.usedmarket.Main.main(Main.java:16)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169)
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91)
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:333)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3758)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3647)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:732)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:588)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:325)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:273)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:276)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:192)
+	... 43 more
+
+May 25, 2021 10:55:01 PM org.hibernate.internal.SessionFactoryImpl <init>
+ERROR: HHH000177: Error in named query: CategoryPO.findAllCount
+org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u FROM CATEGORY u]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79)
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:220)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.query.spi.NamedQueryRepository.checkNamedQueries(NamedQueryRepository.java:157)
+	at org.hibernate.internal.SessionFactoryImpl.checkNamedQueries(SessionFactoryImpl.java:549)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.usedmarket.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.usedmarket.Main.main(Main.java:16)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169)
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91)
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:333)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3758)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3647)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:732)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:588)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:325)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:273)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:276)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:192)
+	... 43 more
+
+May 25, 2021 10:55:01 PM org.hibernate.resource.beans.container.spi.AbstractCdiBeanContainer stop
+INFO: HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerImmediateAccessImpl@1cb929a9
+May 25, 2021 10:55:01 PM com.zaxxer.hikari.HikariDataSource close
+INFO: HikariPool-1 - Shutdown initiated...
+May 25, 2021 10:55:01 PM com.zaxxer.hikari.HikariDataSource close
+INFO: HikariPool-1 - Shutdown completed.
+May 25, 2021 10:55:01 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container 93ecda37-c342-4b7c-a923-f6ad73830ac4 shut down
+Exception in thread "main" javax.persistence.PersistenceException: [PersistenceUnit: mssql] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:1336)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1262)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.usedmarket.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.usedmarket.Main.main(Main.java:16)
+Caused by: org.hibernate.HibernateException: Errors in named queries: 
+CategoryPO.findAll failed because of: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u.ID, u.DESCRIPTION FROM CATEGORY u]
+CategoryPO.findAllCount failed because of: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u FROM CATEGORY u]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:341)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	... 34 more
+===================================
+-----------------------------------------
+Listening for transport dt_socket at address: 10095
+May 25, 2021 10:56:31 PM io.helidon.common.LogConfig doConfigureLogging
+INFO: Logging at initialization configured using defaults
+May 25, 2021 10:56:31 PM org.jboss.weld.bootstrap.WeldStartup <clinit>
+INFO: WELD-000900: 3.1.4 (Final)
+May 25, 2021 10:56:32 PM org.jboss.weld.environment.deployment.discovery.DiscoveryStrategyFactory create
+INFO: WELD-ENV-000020: Using jandex for bean discovery
+May 25, 2021 10:56:32 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] private io.helidon.microprofile.openapi.OpenApiCdiExtension.processAnnotatedType(@Observes ProcessAnnotatedType<X>) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 10:56:33 PM org.jboss.weld.event.ExtensionObserverMethodImpl checkRequiredTypeAnnotations
+INFO: WELD-000411: Observer method [BackedAnnotatedMethod] public org.glassfish.jersey.ext.cdi1x.internal.ProcessAllAnnotatedTypes.processAnnotatedType(@Observes ProcessAnnotatedType<?>, BeanManager) receives events for all annotated types. Consider restricting events using @WithAnnotations or a generic type with bounds.
+May 25, 2021 10:56:34 PM io.helidon.tracing.tracerresolver.TracerResolverBuilder build
+INFO: TracerResolver not configured, tracing is disabled
+May 25, 2021 10:56:34 PM io.helidon.microprofile.tracing.TracingCdiExtension prepareTracer
+WARNING: helidon-microprofile-tracing is on the classpath, yet there is no tracer implementation library. Tracing uses a no-op tracer. As a result, no tracing will be configured for WebServer and JAX-RS
+May 25, 2021 10:56:34 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authentication provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). Security will not have any valid authentication provider
+May 25, 2021 10:56:34 PM io.helidon.microprofile.security.SecurityCdiExtension registerSecurity
+INFO: Authorization provider is missing from security configuration, but security extension for microprofile is enabled (requires providers configuration at key security.providers). ABAC provider is configured for authorization.
+May 25, 2021 10:56:35 PM org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation
+INFO: HHH000204: Processing PersistenceUnitInfo [name: mssql]
+May 25, 2021 10:56:35 PM org.hibernate.Version logVersion
+INFO: HHH000412: Hibernate ORM core version 5.4.18.Final
+May 25, 2021 10:56:35 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager <clinit>
+INFO: HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+May 25, 2021 10:56:36 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Starting...
+May 25, 2021 10:56:36 PM com.zaxxer.hikari.HikariDataSource <init>
+INFO: HikariPool-1 - Start completed.
+May 25, 2021 10:56:36 PM org.hibernate.dialect.Dialect <init>
+INFO: HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+May 25, 2021 10:56:37 PM org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService
+INFO: HHH000490: Using JtaPlatform implementation: [io.helidon.integrations.cdi.hibernate.CDISEJtaPlatform$Proxy$_$$_WeldClientProxy]
+May 25, 2021 10:56:37 PM org.hibernate.internal.SessionFactoryImpl <init>
+ERROR: HHH000177: Error in named query: CategoryPO.findAll
+org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u.ID, u.DESCRIPTION FROM CATEGORY u]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79)
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:220)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.query.spi.NamedQueryRepository.checkNamedQueries(NamedQueryRepository.java:157)
+	at org.hibernate.internal.SessionFactoryImpl.checkNamedQueries(SessionFactoryImpl.java:549)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.usedmarket.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.usedmarket.Main.main(Main.java:16)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169)
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91)
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:333)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3758)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3647)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:732)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:588)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:325)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:273)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:276)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:192)
+	... 43 more
+
+May 25, 2021 10:56:37 PM org.hibernate.internal.SessionFactoryImpl <init>
+ERROR: HHH000177: Error in named query: CategoryPO.findAllCount
+org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u FROM CATEGORY u]
+	at org.hibernate.hql.internal.ast.QuerySyntaxException.generateQueryException(QuerySyntaxException.java:79)
+	at org.hibernate.QueryException.wrapWithQueryString(QueryException.java:103)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:220)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:144)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:113)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:73)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:162)
+	at org.hibernate.query.spi.NamedQueryRepository.checkNamedQueries(NamedQueryRepository.java:157)
+	at org.hibernate.internal.SessionFactoryImpl.checkNamedQueries(SessionFactoryImpl.java:549)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:327)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.usedmarket.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.usedmarket.Main.main(Main.java:16)
+Caused by: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped
+	at org.hibernate.hql.internal.ast.util.SessionFactoryHelper.requireClassPersister(SessionFactoryHelper.java:169)
+	at org.hibernate.hql.internal.ast.tree.FromElementFactory.addFromElement(FromElementFactory.java:91)
+	at org.hibernate.hql.internal.ast.tree.FromClause.addFromElement(FromClause.java:79)
+	at org.hibernate.hql.internal.ast.HqlSqlWalker.createFromElement(HqlSqlWalker.java:333)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElement(HqlSqlBaseWalker.java:3758)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromElementList(HqlSqlBaseWalker.java:3647)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.fromClause(HqlSqlBaseWalker.java:732)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:588)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:325)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:273)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:276)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:192)
+	... 43 more
+
+May 25, 2021 10:56:37 PM org.hibernate.resource.beans.container.spi.AbstractCdiBeanContainer stop
+INFO: HHH10005004: Stopping BeanContainer : org.hibernate.resource.beans.container.internal.CdiBeanContainerImmediateAccessImpl@57ac2910
+May 25, 2021 10:56:37 PM com.zaxxer.hikari.HikariDataSource close
+INFO: HikariPool-1 - Shutdown initiated...
+May 25, 2021 10:56:37 PM com.zaxxer.hikari.HikariDataSource close
+INFO: HikariPool-1 - Shutdown completed.
+May 25, 2021 10:56:37 PM io.helidon.microprofile.cdi.HelidonContainerImpl$HelidonCdi close
+INFO: WELD-ENV-002001: Weld SE container d25d9cfd-b4a4-4292-b3dd-713364afdff8 shut down
+Exception in thread "main" javax.persistence.PersistenceException: [PersistenceUnit: mssql] Unable to build Hibernate SessionFactory
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.persistenceException(EntityManagerFactoryBuilderImpl.java:1336)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1262)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createContainerEntityManagerFactory(HibernatePersistenceProvider.java:141)
+	at org.hibernate.jpa.HibernatePersistenceProvider$Proxy$_$$_WeldClientProxy.createContainerEntityManagerFactory(Unknown Source)
+	at io.helidon.integrations.cdi.jpa.EntityManagerFactories.createContainerManagedEntityManagerFactory(EntityManagerFactories.java:189)
+	at io.helidon.integrations.cdi.jpa.JpaExtension.lambda$addContainerManagedEntityManagerFactoryBeans$1(JpaExtension.java:1102)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.create(BeanConfiguratorImpl.java:368)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$CreateCallback.access$700(BeanConfiguratorImpl.java:338)
+	at org.jboss.weld.bootstrap.events.configurator.BeanConfiguratorImpl$ImmutableBean.create(BeanConfiguratorImpl.java:503)
+	at org.jboss.weld.contexts.AbstractContext.get(AbstractContext.java:96)
+	at org.jboss.weld.bean.ContextualInstanceStrategy$DefaultContextualInstanceStrategy.get(ContextualInstanceStrategy.java:100)
+	at org.jboss.weld.bean.ContextualInstance.get(ContextualInstance.java:50)
+	at org.jboss.weld.bean.proxy.ContextBeanInstance.getInstance(ContextBeanInstance.java:102)
+	at org.jboss.weld.bean.proxy.ProxyMethodHandler.invoke(ProxyMethodHandler.java:105)
+	at org.jboss.weldx.persistence.EntityManagerFactory$$Proxy$_$$_WeldClientProxy.createEntityManager(Unknown Source)
+	at dk.usedmarket.repository.entitymanager.JpaStarter.onInitialized(JpaStarter.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:85)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SimpleMethodInvocationStrategy.invoke(MethodInvocationStrategy.java:168)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at javax.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:124)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:335)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:245)
+	at io.helidon.microprofile.server.ServerImpl.start(ServerImpl.java:85)
+	at dk.usedmarket.Main.main(Main.java:16)
+Caused by: org.hibernate.HibernateException: Errors in named queries: 
+CategoryPO.findAll failed because of: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u.ID, u.DESCRIPTION FROM CATEGORY u]
+CategoryPO.findAllCount failed because of: org.hibernate.hql.internal.ast.QuerySyntaxException: CATEGORY is not mapped [Select u FROM CATEGORY u]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:341)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:469)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259)
+	... 34 more

@@ -1,0 +1,43 @@
+.question {
+  margin: 0.4rem auto;
+  background-color: rgb(31, 31, 31);
+  width: 50rem;
+  max-width: 95%;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+.questionCorrect {
+  margin: 0.4rem auto;
+  background-color: rgb(31, 31, 31);
+  width: 50rem;
+  max-width: 95%;
+  padding: 0.5rem;
+  border: 3px solid transparent;
+  animation: blinkGreen 0.5s step-end infinite alternate;
+  border-radius: 12px;
+}
+
+.questionWrong {
+  margin: 0.4rem auto;
+  background-color: rgb(31, 31, 31);
+  width: 50rem;
+  max-width: 95%;
+  padding: 0.5rem;
+  border: 3px solid transparent;
+  animation: blinkRed 0.5s step-end infinite alternate;
+  border-radius: 12px;
+}
+
+@keyframes blinkGreen {
+  50% {
+    border-color: rgb(60, 255, 0);
+  }
+}
+
+@keyframes blinkRed {
+  50% {
+    border-color: rgb(255, 0, 0);
+  }
+}

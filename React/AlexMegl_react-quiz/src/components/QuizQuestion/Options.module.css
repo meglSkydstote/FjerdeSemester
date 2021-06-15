@@ -1,0 +1,7 @@
+.options {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  vertical-align: middle;
+  border-radius: 12px;
+}

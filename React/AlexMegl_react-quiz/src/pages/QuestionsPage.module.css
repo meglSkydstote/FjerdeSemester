@@ -1,0 +1,29 @@
+ul {
+  height: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.button {
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 1px solid #727272;
+  background-color: rgb(145, 143, 143);
+  color: rgb(0, 0, 0);
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button:hover,
+.button:active {
+  background-color: #727272;
+  border-color: rgb(31, 31, 31);
+  color: #ffffff;
+}

@@ -1,0 +1,17 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto 5%;
+}
+
+.content {
+  margin: auto;
+  margin-top: 50px;
+  color: white;
+}
+
+.content {
+  margin: auto;
+  margin-top: 50px;
+}

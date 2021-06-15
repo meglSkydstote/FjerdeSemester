@@ -1,0 +1,51 @@
+plugins {
+    id 'java-library'
+    id 'application'
+    id 'org.kordamp.gradle.jandex' version '0.6.0'
+}
+
+
+group 'dk.howard'
+version '1.0-SNAPSHOT'
+description = """Demo-JPA"""
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+apply from: 'dependencies.gradle'
+
+task copyLibs(type: Copy) {
+    from configurations.runtimeClasspath
+    into 'build/libs/libs'
+}
+
+// Ensure beans.xml is located in the classes folder
+task copyResources(type: Copy) {
+    from "${projectDir}/src/main/resources/META-INF"
+    into "${buildDir}/classes/java/main/META-INF"
+}
+
+
+ext {
+    helidonversion = '2.0.1'
+    javaMainClass = 'dk.howard.Main'
+}
+
+application {
+    mainClassName = javaMainClass
+}
+copyLibs.dependsOn jar
+assemble.dependsOn copyLibs
+
+
+jar {
+    archiveBaseName = "${project.name}"
+    manifest {
+        attributes(
+                'Main-Class': javaMainClass,
+                'Class-Path': configurations.runtimeClasspath.files.collect { "libs/$it.name" }.join(' ')
+        )
+    }
+}
+
